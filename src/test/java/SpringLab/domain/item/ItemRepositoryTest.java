@@ -1,14 +1,12 @@
 package SpringLab.domain.item;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ItemRepositoryTest {
 
@@ -43,18 +41,17 @@ class ItemRepositoryTest {
         List<Item> itemList = new ArrayList<>();
         itemList.add(savedItem1);
         itemList.add(savedItem2);
+
         // when
         List<Item> result = itemRepository.findAll();
-
 
         // then
         assertThat(result.size()).isEqualTo(2);
         assertThat(result).contains(item1, item2);
-
     }
-
     @Test
     void updateItem() {
+
     }
 
     @Test
