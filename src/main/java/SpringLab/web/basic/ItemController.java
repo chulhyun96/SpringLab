@@ -44,7 +44,7 @@ public class ItemController {
     }
     //등록 폼
     @GetMapping("/add")
-    public String addItem(@ModelAttribute String name) {
+    public String addItem() {
         return "basic/addForm";
     }
     //등록하기
@@ -60,6 +60,7 @@ public class ItemController {
         model.addAttribute("item", findItem);
         return "basic/editForm";
     }
+    //수정하기
     @PostMapping("/{itemId}/edit")
     public String editItem(@ModelAttribute("item") Item updateItem,@PathVariable Long itemId) {
         repository.updateItem(itemId, updateItem);
