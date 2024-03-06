@@ -7,9 +7,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +37,21 @@ public class ItemController {
     public String item(@PathVariable long itemId, Model model) {
         Item findItem = repository.findById(itemId);
         model.addAttribute("item", findItem);
+        return "basic/item";
+    }
+    @GetMapping("/add")
+    public String addItem(@ModelAttribute String name) {
+        return "basic/addForm";
+    }
+    @PostMapping("/add")
+    public String saveItem(@RequestParam String itemName,
+                           @RequestParam Integer price,
+                           @RequestParam Integer quantity,
+                           Model model) {
+
+        Item newItem = new Item(itemName, price, quantity);
+        repository.save(newItem);
+        model.addAttribute("item", newItem);
         return "basic/item";
     }
 }
