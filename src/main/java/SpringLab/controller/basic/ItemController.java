@@ -1,4 +1,4 @@
-package SpringLab.web.basic;
+package SpringLab.controller.basic;
 
 
 import SpringLab.domain.item.Item;
@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -27,7 +28,6 @@ public class ItemController {
         repository.save(new Item("testB", 20000, 20));
     }
     //리스트페이지 불러오기
-
     @GetMapping
     public String items(Model model) {
         List<Item> itemList = repository.findAll();
@@ -37,7 +37,7 @@ public class ItemController {
 
     //디테일페이지
     @GetMapping("/{itemId}")
-    public String item(@PathVariable long itemId, Model model) {
+    public String item(@PathVariable Long itemId, Model model) {
         Item findItem = repository.findById(itemId);
         model.addAttribute("item", findItem);
         return "basic/item";
@@ -48,10 +48,18 @@ public class ItemController {
         return "basic/addForm";
     }
     //등록하기
-    @PostMapping("/add")
+    /*@PostMapping("/add")
     public String addItem(@ModelAttribute("item") Item item) {
         repository.save(item);
-        return "basic/item";
+        return "redirect:/basic/items/" + item.getId();
+    }*/
+    //PRG 등록하기
+    @PostMapping("/add")
+    public String addItem(@ModelAttribute("item") Item item, RedirectAttributes ra) {
+        Item savedItem = repository.save(item);
+        ra.addAttribute("itemId", savedItem.getId());
+        ra.addAttribute("save",true);
+        return "redirect:/basic/items/{itemId}";
     }
     //수정 폼
     @GetMapping("/{itemId}/edit")
