@@ -34,7 +34,7 @@
 
                 <td><a href="item.html"
                        th:href="@{/basic/items/{itemId}(itemId=${item.id})}"
-                       th:text="${item.name}">테스트 상품1</a></td>
+                       th:text="${item.getItemName}">테스트 상품1</a></td>
                 <td th:text="${item.price}">10000</td>
                 <td th:text="${item.quantity}">10</td>
             </tr>
