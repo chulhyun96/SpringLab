@@ -54,6 +54,7 @@ public class ItemController {
         return "redirect:/basic/items/" + item.getId();
     }*/
     //PRG 등록하기
+    //수정 폼
     @PostMapping("/add")
     public String addItem(@ModelAttribute("item") Item item, RedirectAttributes ra) {
         Item savedItem = repository.save(item);
@@ -61,7 +62,7 @@ public class ItemController {
         ra.addAttribute("save",true);
         return "redirect:/basic/items/{itemId}";
     }
-    //수정 폼
+
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
         Item findItem = repository.findById(itemId);
