@@ -17,5 +17,6 @@ public class AppConfig {
     @Bean
     public Printer createPrinter() {
         return new Printer();
+
     }
 }
