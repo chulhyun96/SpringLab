@@ -1,6 +1,6 @@
-import StartSpringConf.AppConfig;
-import StartSpringConf.TestA;
-import StartSpringConf.TestInt;
+import Lab.StartSpringConf.AppConfig;
+import Lab.StartSpringConf.TestA;
+import Lab.StartSpringConf.TestInt;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

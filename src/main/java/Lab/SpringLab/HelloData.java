@@ -1,4 +1,4 @@
-package SpringLab;
+package Lab.SpringLab;
 
 import lombok.Data;
 

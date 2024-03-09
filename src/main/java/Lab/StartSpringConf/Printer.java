@@ -1,4 +1,4 @@
-package StartSpringConf;
+package Lab.StartSpringConf;
 
 public class Printer {
     private TestInt testInt;

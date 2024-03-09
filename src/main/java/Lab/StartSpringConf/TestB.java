@@ -1,4 +1,4 @@
-package StartSpringConf;
+package Lab.StartSpringConf;
 
 import lombok.Setter;
 

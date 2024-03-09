@@ -1,4 +1,4 @@
-package SpringLab.domain.item;
+package Lab.SpringLab.domain.item;
 
 
 import lombok.Getter;

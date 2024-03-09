@@ -1,4 +1,4 @@
-package SpringLab.response;
+package Lab.SpringLab.response;
 
 
 import jakarta.servlet.http.HttpServletRequest;

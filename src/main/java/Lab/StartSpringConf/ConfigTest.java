@@ -1,4 +1,4 @@
-package StartSpringConf;
+package Lab.StartSpringConf;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

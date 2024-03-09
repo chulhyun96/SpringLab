@@ -1,8 +1,8 @@
-package SpringLab.controller.basic;
+package Lab.SpringLab.controller.basic;
 
 
-import SpringLab.domain.item.Item;
-import SpringLab.domain.item.ItemRepository;
+import Lab.SpringLab.domain.item.ItemRepository;
+import Lab.SpringLab.domain.item.Item;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
