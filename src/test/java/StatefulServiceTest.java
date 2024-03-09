@@ -22,8 +22,23 @@ class StatefulServiceTest {
 
 
         // 예상 값 = 1000, 결과값 = 2000
-        int price = bean1.getPrice();
-        System.out.println("결과 = "  + price);
+        /*        int price = bean1.getPrice();*/
+        /*System.out.println("결과 값" + price);*/
+    }
+
+    @Test
+    @DisplayName("stateful 정보 확인, 싱글톤 컨테이너 사용시 주의점")
+    void statelessMethod() {
+        StatefulService bean1 = ac.getBean(StatefulService.class);
+        StatefulService bean2 = ac.getBean(StatefulService.class);
+
+        // Thread A
+        int userA = bean1.order("userA", 1000);
+        // Thread B
+        int userB = bean2.order("userB", 2000);
+
+        System.out.println("userA = " + userA);
+        System.out.println("userB = " + userB);
     }
 
     static class StatefulServiceTestInnerClass {
