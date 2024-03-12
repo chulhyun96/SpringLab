@@ -1,0 +1,3 @@
+@MyIncludeComponent
+public class BeanA {
+}

@@ -1,0 +1,5 @@
+
+
+@MyExcludeComponent
+public class BeanB {
+}
