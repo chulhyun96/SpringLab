@@ -1,5 +1,3 @@
-
-
 @MyExcludeComponent
 public class BeanB {
 }

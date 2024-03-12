@@ -9,7 +9,6 @@ public class TestA implements TestInt{
     private String name;
     public TestA() {
     }
-
     public TestA(String name) {
         this.name = name;
     }
