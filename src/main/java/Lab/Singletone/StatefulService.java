@@ -1,4 +1,4 @@
-package Lab.Singtone;
+package Lab.Singletone;
 
 public class StatefulService {
 

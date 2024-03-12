@@ -1,5 +1,8 @@
 package Lab.StartSpringConf;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Printer {
     private TestInt testInt;
 

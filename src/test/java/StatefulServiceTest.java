@@ -1,4 +1,4 @@
-import Lab.Singtone.StatefulService;
+import Lab.Singletone.StatefulService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
