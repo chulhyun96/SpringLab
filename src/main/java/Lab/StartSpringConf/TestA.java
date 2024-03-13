@@ -14,7 +14,7 @@ public class TestA implements TestInt{
     }
 
     @Override
-    public void printStatus() {
-        System.out.println("TestA = " + name);
+    public String printStatus() {
+        return "TestA" + name;
     }
 }

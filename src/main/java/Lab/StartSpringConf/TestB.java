@@ -13,7 +13,7 @@ public class TestB implements TestInt{
         this.name = name;
     }
     @Override
-    public void printStatus() {
-        System.out.println("TestB = " + name);
+    public String printStatus() {
+        return "TestB = " + name;
     }
 }
