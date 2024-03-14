@@ -11,7 +11,7 @@ public class AllBeanTest {
 
 
     @Test
-    void asd() {
+    void strategyPatternTest() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class,AllBean.class);
         AllBean bean = ac.getBean(AllBean.class);
         String s = bean.printDynamically("testA");
@@ -21,7 +21,7 @@ public class AllBeanTest {
     }
 
     static class AllBean {
-        private Map<String, TestInt> testIntMap;
+        private final Map<String, TestInt> testIntMap;
         private List<TestInt> testIntList;
 
         public AllBean(Map<String, TestInt> testIntMap, List<TestInt> testIntList) {
