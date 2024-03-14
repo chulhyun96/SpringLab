@@ -28,16 +28,17 @@ public class NetworkClient  {
                 "url='" + url + '\'' +
                 '}';
     }
-    //소멸 전 콜백 메서드 호출 -> 스프링 컨테이너 다운
-    public void destroy() throws Exception {
-        System.out.println("NetworkClient.destroy");
-        disconnect();
-        System.out.println("--------소멸전 콜백 메서드----------");
-    }
-    //객체 생성 -> 의존성 주입 -> 초기화 콜백 메서드 호출
-    public void afterPropertiesSet() throws Exception {
+    public void init() throws Exception {
+        //객체 생성 -> 의존성 주입 -> 초기화 콜백 메서드 호출
         System.out.println("NetworkClient.afterPropertiesSet");
         connect();
         System.out.println("--------초기화 콜백 메서드----------");
+
+    }
+    //소멸 전 콜백 메서드 호출 -> 스프링 컨테이너 다운
+    public void close() throws Exception {
+        System.out.println("NetworkClient.destroy");
+        disconnect();
+        System.out.println("--------소멸전 콜백 메서드----------");
     }
 }
