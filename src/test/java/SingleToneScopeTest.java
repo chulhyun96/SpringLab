@@ -1,4 +1,5 @@
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -25,6 +26,10 @@ public class SingleToneScopeTest {
         @PostConstruct
         public void init() {
             System.out.println("SingToneBeanTest.init");
+        }
+        @PreDestroy
+        public void destroy() {
+            System.out.println("SingleToneBeanTest.destroy");
         }
     }
 }
