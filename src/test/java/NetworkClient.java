@@ -1,3 +1,5 @@
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 public class NetworkClient  {
     private  String url;
@@ -28,13 +30,15 @@ public class NetworkClient  {
                 "url='" + url + '\'' +
                 '}';
     }
+    @PostConstruct
+    //객체 생성 -> 의존성 주입 -> 초기화 콜백 메서드 호출
     public void init() throws Exception {
-        //객체 생성 -> 의존성 주입 -> 초기화 콜백 메서드 호출
         System.out.println("NetworkClient.afterPropertiesSet");
         connect();
         System.out.println("--------초기화 콜백 메서드----------");
 
     }
+    @PreDestroy
     //소멸 전 콜백 메서드 호출 -> 스프링 컨테이너 다운
     public void close() throws Exception {
         System.out.println("NetworkClient.destroy");
