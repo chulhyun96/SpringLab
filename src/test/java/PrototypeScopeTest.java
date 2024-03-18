@@ -18,14 +18,12 @@ public class PrototypeScopeTest {
         System.out.println("bean1 = " + bean1);
         System.out.println("bean2 = " + bean2);
 
+        context.close();
         assertThat(bean1).isNotSameAs(bean2);
-
-
     }
 
     @Scope("prototype")
     static class PrototypeScope {
-
         @PostConstruct
         public void init() {
             System.out.println("PrototypeScope.init");

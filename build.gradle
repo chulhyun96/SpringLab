@@ -28,8 +28,12 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework:spring-tx:5.3.15'
+	// Spring Boot 3.x에서는 spring-tx를 별도로 추가하지 않아도 됩니다. 필요에 따라 아래와 같이 변경
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.h2database:h2'
+
 }
+
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.3"
