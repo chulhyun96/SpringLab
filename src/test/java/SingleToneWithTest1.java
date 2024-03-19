@@ -1,5 +1,6 @@
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 
@@ -16,9 +17,10 @@ public class SingleToneWithTest1 {
         bean2.addCount();
         Assertions.assertThat(bean2.getCount()).isEqualTo(1);
     }
+
     @Test
     void singleToneWithPrototype2() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ClientBean.class,PrototypeBean.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ClientBean.class, PrototypeBean.class);
         ClientBean bean1 = context.getBean(ClientBean.class);
         int logic1 = bean1.logic();
         Assertions.assertThat(logic1).isEqualTo(1);
@@ -27,28 +29,27 @@ public class SingleToneWithTest1 {
 
         ClientBean bean2 = context.getBean(ClientBean.class);
         int logic2 = bean2.logic();
-        Assertions.assertThat(logic2).isEqualTo(2);
+        Assertions.assertThat(logic2).isEqualTo(1);
 
         Assertions.assertThat(bean1).isSameAs(bean2);
         Assertions.assertThat(p1).isNotSameAs(p2);
     }
+
     @Scope
     static class ClientBean {
-
-        private final PrototypeBean prototypeBean;
-
-        public ClientBean(PrototypeBean prototypeBean) {
-            this.prototypeBean = prototypeBean;
+        private final ObjectProvider<PrototypeBean> prototypeBeanProvider;
+        public ClientBean(ObjectProvider<PrototypeBean> prototypeBeanProvider) {
+            this.prototypeBeanProvider = prototypeBeanProvider;
         }
-
         public int logic() {
+            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
     }
 
     @Scope("prototype")
-    static class PrototypeBean{
+    static class PrototypeBean {
         private int count = 0;
 
         public void addCount() {
