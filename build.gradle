@@ -31,7 +31,6 @@ dependencies {
 	// Spring Boot 3.x에서는 spring-tx를 별도로 추가하지 않아도 됩니다. 필요에 따라 아래와 같이 변경
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.h2database:h2'
-	implementation '`jakarta.inject:jakarta.inject-api:2.0.1'
 }
 
 dependencyManagement {
