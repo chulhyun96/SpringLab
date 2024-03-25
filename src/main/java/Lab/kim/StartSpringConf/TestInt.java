@@ -1,4 +1,4 @@
-package Lab.StartSpringConf;
+package Lab.kim.StartSpringConf;
 
 
 public interface TestInt {

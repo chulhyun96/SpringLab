@@ -1,4 +1,4 @@
-package Lab.SpringLab.domain.item;
+package Lab.kim.SpringLab.domain.item;
 
 
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package Lab.mylogger;
+package Lab.kim.mylogger;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

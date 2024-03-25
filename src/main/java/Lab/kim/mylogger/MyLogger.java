@@ -1,4 +1,4 @@
-package Lab.mylogger;
+package Lab.kim.mylogger;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -28,8 +28,6 @@ public class MyLogger {
 
     @PreDestroy
     public void close () throws InterruptedException {
-        Thread.sleep(5000);
-
         System.out.println("[" + uuid + "] request scope bean close:" + this);
     }
 

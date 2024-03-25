@@ -1,11 +1,11 @@
-package Lab.StartSpringConf;
+package Lab.kim.StartSpringConf;
 
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Setter
 @Component
-public class TestB implements TestInt{
+public class TestB implements TestInt {
     private String name;
     public TestB() {
     }

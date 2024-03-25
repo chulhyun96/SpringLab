@@ -1,4 +1,4 @@
-package Lab.Singletone;
+package Lab.kim.Singletone;
 
 public class StatefulService {
 

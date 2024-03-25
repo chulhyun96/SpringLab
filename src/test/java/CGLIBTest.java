@@ -2,6 +2,7 @@ import Lab.StartSpringConf.AppConfig;
 import Lab.StartSpringConf.TestInt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -29,5 +30,18 @@ public class CGLIBTest {
 
         System.out.println(a);
         System.out.println(b);
+    }
+
+    @Test
+    void CGLIBTest () {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CGLIBTest.class);
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            BeanDefinition beanDefinition = context.getBeanDefinition(beanDefinitionName);
+
+            if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
+                System.out.println(beanDefinition);
+            }
+        }
     }
 }

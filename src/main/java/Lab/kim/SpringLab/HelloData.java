@@ -1,4 +1,4 @@
-package Lab.SpringLab;
+package Lab.kim.SpringLab;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package Lab.StartSpringConf;
+package Lab.kim.StartSpringConf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

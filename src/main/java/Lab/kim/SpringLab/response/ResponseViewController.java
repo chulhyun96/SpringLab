@@ -1,4 +1,4 @@
-package Lab.SpringLab.response;
+package Lab.kim.SpringLab.response;
 
 
 import jakarta.servlet.http.HttpServletRequest;

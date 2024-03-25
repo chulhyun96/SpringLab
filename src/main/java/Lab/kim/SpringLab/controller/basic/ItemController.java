@@ -1,8 +1,8 @@
-package Lab.SpringLab.controller.basic;
+package Lab.kim.SpringLab.controller.basic;
 
 
-import Lab.SpringLab.domain.item.ItemRepository;
-import Lab.SpringLab.domain.item.Item;
+import Lab.kim.SpringLab.domain.item.Item;
+import Lab.kim.SpringLab.domain.item.ItemRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -71,7 +71,7 @@ public class ItemController {
     }
     //수정하기
     @PostMapping("/{itemId}/edit")
-    public String editItem(@ModelAttribute("item") Item updateItem,@PathVariable Long itemId) {
+    public String editItem(@ModelAttribute("item") Item updateItem, @PathVariable Long itemId) {
         repository.updateItem(itemId, updateItem);
         return "redirect:/basic/items/{itemId}";
     }
