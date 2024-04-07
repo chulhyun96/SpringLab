@@ -36,6 +36,12 @@
                value="10" readonly th:value="${item.quantity}">
     </div>
     <hr class="my-4">
+    <div>
+        <div class="form-check">
+            <label>판매 오픈</label>
+            <input type="checkbox" id="sellable" th:field="${item.open}" class="form-check-input" disabled>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <button class="w-100 btn btn-primary btn-lg" onclick="location.href='editForm.html'"

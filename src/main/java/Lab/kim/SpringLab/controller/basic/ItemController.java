@@ -42,21 +42,14 @@ public class ItemController {
         model.addAttribute("item", findItem);
         return "basic/item";
     }
-    //등록 폼
     @GetMapping("/add")
-    public String addItem() {
+    public String addForm(Model model) {
+        model.addAttribute("item", new Item());
         return "basic/addForm";
     }
-    //등록하기
-    /*@PostMapping("/add")
-    public String addItem(@ModelAttribute("item") Item item) {
-        repository.save(item);
-        return "redirect:/basic/items/" + item.getId();
-    }*/
-    //PRG 등록하기
-    //수정 폼
     @PostMapping("/add")
-    public String addItem(@ModelAttribute("item") Item item, RedirectAttributes ra) {
+    public String addItem(@ModelAttribute Item item, RedirectAttributes ra) {
+        log.info("item.open ={}", item.getOpen());
         Item savedItem = repository.save(item);
         ra.addAttribute("itemId", savedItem.getId());
         ra.addAttribute("save",true);

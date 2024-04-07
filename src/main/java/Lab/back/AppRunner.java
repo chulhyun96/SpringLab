@@ -10,13 +10,10 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class AppRunner implements ApplicationRunner {
 
-    @Value("#{1 + 1}")
     int value;
 
-    @Value("#{'hello + world'}")
     String greeting;
 
-    @Value("#{1 eq 1}")
     boolean trueOrFalse;
 
     @Override

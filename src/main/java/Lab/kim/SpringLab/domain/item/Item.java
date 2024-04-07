@@ -1,20 +1,28 @@
 package Lab.kim.SpringLab.domain.item;
 
 
+import Lab.kim.SpringLab.type.ItemType;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
 public class Item {
-    //id, 상품명, 가격, 수량
-    //수량이나 가격이 null(값이 없는채로 등록될 수도 있기 때문에 Integer 타입으로 선언)
     private Long id;
     private String itemName;
     private Integer price;
     private Integer quantity;
+
+    private Boolean open;// 판매여부
+    private List<String> regions; //등록지역
+    private String deliveryCode;// 배송방식
+    private ItemType itemType;//상품 종류
+
     public Item() {
     }
+
     //id값은 자동증가
     public Item(String itemName, Integer price, Integer quantity) {
         this.itemName = itemName;
