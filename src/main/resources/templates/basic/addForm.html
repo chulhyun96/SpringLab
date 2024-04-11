@@ -16,7 +16,7 @@
     </div>
     <h4 class="mb-3">상품 입력</h4>
     <!--상품 등록 폼-->
-    <form action="item.html" th:action method="post" th:object="${item}">
+    <form th:action method="post" th:object="${item}">
         <div>
             <label for="itemName">상품명</label>
             <input type="text" id="itemName" class="form-control" th:field="*{itemName}" placeholder="이름을 입력하세요">
@@ -32,6 +32,24 @@
         </div>
         <!-- 버튼-->
         <hr class="my-4">
+        <!--라디오 체크 박스-->
+        <div>
+            <div>상품 종류</div>
+            <div th:each="type : ${itemTypes}" class="form-check form-check-inline">
+                <input type="radio" th:field="*{itemType}" th:value="${type.name()}" class="form-check">
+                <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">서울</label>
+            </div>
+        </div>
+        <!--라디오 체크 박스-->
+        <!--멀티 체크 박스-->
+        <div>
+            <div>등록 지역</div>
+            <div th:each="region : ${regions}" class="form-check form-check-inline">
+                <input type="checkbox" th:field="*{regions}" th:value="${region.key}" class="form-check">
+                <label th:for="${#ids.prev('regions')}" th:text="${region.value}" class="form-check-label">서울</label>
+            </div>
+        </div>
+        <!--멀티 체크 박스-->
 
         <div>판매 여부</div>
         <div>
@@ -40,7 +58,13 @@
                 <input type="checkbox" id="sellable" th:field="*{open}" class="form-check-input">
             </div>
         </div>
-
+        <div>
+            <select th:field="*{deliveryCode}" class="form-select">
+                <option value="">==배송 방식 선택==</option>
+                <option th:each="deliveryCode : ${deliveryCodes}" th:value="${deliveryCode.code}"
+                        th:text="${deliveryCode.displayName}"></option>
+            </select>
+        </div>
         <div class="row">
             <div class="col">
                 <button class="w-100 btn btn-primary btn-lg"

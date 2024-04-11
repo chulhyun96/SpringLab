@@ -36,11 +36,37 @@
                value="10" readonly th:value="${item.quantity}">
     </div>
     <hr class="my-4">
+    <!--라디오 체크 박스-->
+    <div>
+        <div>상품 종류</div>
+        <div th:each="type : ${itemTypes}" class="form-check form-check-inline">
+            <input type="radio" th:field="*{item.itemType}" th:value="${type.name()}" class="form-check" disabled>
+            <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">서울</label>
+        </div>
+    </div>
+    <!--라디오 체크 박스-->
+    <!--멀티 체크 박스-->
+    <div>
+        <div>등록 지역</div>
+        <div th:each="region : ${regions}" class="form-check form-check-inline">
+            <input type="checkbox" th:field="*{item.regions}" th:value="${region.key}" class="form-check" disabled>
+            <label th:for="${#ids.prev('regions')}" th:text="${region.value}" class="form-check-label" >서울</label>
+        </div>
+    </div>
+    <!--멀티 체크 박스-->
     <div>
         <div class="form-check">
             <label>판매 오픈</label>
             <input type="checkbox" id="sellable" th:field="${item.open}" class="form-check-input" disabled>
         </div>
+    </div>
+    <hr class="my-4">
+    <div>
+        <select th:field="*{item.deliveryCode}" class="form-select">
+            <option value="">==배송 방식 선택==</option>
+            <option th:each="deliveryCode : ${deliveryCodes}" th:value="${deliveryCode.code}"
+                    th:text="${deliveryCode.displayName}" disabled></option>
+        </select>
     </div>
     <div class="row">
         <div class="col">
