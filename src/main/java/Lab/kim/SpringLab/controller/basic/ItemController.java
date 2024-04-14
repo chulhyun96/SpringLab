@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@Controller("itemController2")
 @RequestMapping("/basic/items")
 @Slf4j
 public class ItemController {

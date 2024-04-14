@@ -2,6 +2,7 @@ package Lab.kim.upload.file;
 
 
 import Lab.kim.upload.domain.UploadFile;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+@Slf4j
 @Component
 public class FileStore {
     @Value("${file.dir.image.main}")
@@ -25,6 +27,7 @@ public class FileStore {
     private String fileSubDir;
 
     public String getFullPath(String fileName) {
+        log.info("FullPath = {}", System.getProperty("user.dir") + fileMainDir + fileName);
         return System.getProperty("user.dir") + fileMainDir + fileName;
     }
 
@@ -45,9 +48,11 @@ public class FileStore {
         }
         //실제 파일 이름
         String originalFilename = file.getOriginalFilename();
+        log.info("Original filename: " + originalFilename);
 
         //서버에 저장되는 파일 이름
         String storeFileName = createStoreFileName(originalFilename);
+        log.info("Storing file: " + storeFileName);
 
         Path mainDirPath = Paths.get(storeFileName);
         if (!Files.exists(mainDirPath)) {
