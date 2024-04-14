@@ -54,9 +54,10 @@ public class ItemController {
     }
     //이미지는 바이트 코드로 되어있기 때문에 ResponseBody를 사용해서 바이트코드로 이미지를 반환한다.
     @ResponseBody
-    @GetMapping("/images/{filename}")
+    @GetMapping("/images/main/{filename}")
     public UrlResource downloadImage(@PathVariable String filename) throws MalformedURLException {
         //UrlResource를 해주는 이유
+        //file:/Users/...
         return new UrlResource("file:" + fileStore.getFullPath(filename));
     }
     @GetMapping("/attach/{itemId}")
