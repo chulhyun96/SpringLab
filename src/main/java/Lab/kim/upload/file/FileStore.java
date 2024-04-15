@@ -52,13 +52,13 @@ public class FileStore {
 
         //서버에 저장되는 파일 이름
         String storeFileName = createStoreFileName(originalFilename);
-        log.info("Storing file: " + storeFileName);
 
-        Path mainDirPath = Paths.get(storeFileName);
+        String fullPath = getFullPath(storeFileName);
+        Path mainDirPath = Paths.get(fullPath);
         if (!Files.exists(mainDirPath)) {
             Files.createDirectories(mainDirPath);
         }
-        file.transferTo(new File(getFullPath(storeFileName)));
+        file.transferTo(new File(fullPath));
 
         return new UploadFile(originalFilename, storeFileName);
     }
